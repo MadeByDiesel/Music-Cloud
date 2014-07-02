@@ -1,0 +1,46 @@
+<%= bootstrap_form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <%= f.text_field :username, autofocus: true %>  
+      <%= f.email_field :email %>
+      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.form_group :account_type, label: { text: "Account Type?" } do %>
+        <%= f.radio_button :account_type, 'artist', label: "Artist", inline: true %>
+        <%= f.radio_button :account_type, 'label', label: "Label", inline: true %>
+        <%= f.radio_button :account_type, 'patron', label: "Patron", inline: true %>
+      <% end %>
+  <div class="field">
+    <%= f.label :artistname %><br>
+    <%= f.text_field :artistname %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

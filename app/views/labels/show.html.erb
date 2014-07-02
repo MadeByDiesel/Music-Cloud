@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Labelname:</strong>
+  <%= @label.labelname %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @label.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @label.country %>
+</p>
+
+<p>
+  <strong>Contactname:</strong>
+  <%= @label.contactname %>
+</p>
+
+<%= link_to 'Edit', edit_label_path(@label) %> |
+<%= link_to 'Back', labels_path %>

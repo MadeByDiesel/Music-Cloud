@@ -1,0 +1,25 @@
+<div class="container devise-form">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div role="form">
+        <h2>Sign in</h2>
+
+        <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <%= f.email_field :email, autofocus: true %>
+
+            <%= f.password_field :password, autocomplete: "off" %>
+
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %>
+          <% end -%>
+
+          <%= f.primary "Sign in" %>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
