@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   # GET /artists
@@ -10,7 +11,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.json
   def show
-    
+    @artist = Artist.find(params[:id])
   end
 
   # GET /artists/new
