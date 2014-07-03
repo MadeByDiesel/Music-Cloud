@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(@artist) do |f| %>
+  <% if @artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+    <%= render 'shared/user_fields' %>
+
+    <%= f.text_field :artistname %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :country %>
+    <%= f.text_field :genre %>
+
+    <%= f.submit %>
+<% end %>
