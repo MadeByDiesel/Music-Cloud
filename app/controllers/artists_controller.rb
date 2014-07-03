@@ -15,8 +15,8 @@ class ArtistsController < ApplicationController
 
   # GET /artists/new
   def new
-    @user = current_user
-    @artist = @user.artist.new
+    @artist = Artist.new
+    @artist.build_user
   end
 
   # GET /artists/1/edit
@@ -26,10 +26,11 @@ class ArtistsController < ApplicationController
   # POST /artists
   # POST /artists.json
   def create
-    @artist = current_user.artist.new(artist_params)
+    @artist = Artist.new(artist_params)
 
     respond_to do |format|
       if @artist.save
+        sign_in @artist.user 
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
         format.json { render :show, status: :created, location: @artist }
       else

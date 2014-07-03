@@ -15,6 +15,7 @@ class LabelsController < ApplicationController
   # GET /labels/new
   def new
     @label = Label.new
+    @label.build_user
   end
 
   # GET /labels/1/edit
@@ -28,6 +29,7 @@ class LabelsController < ApplicationController
 
     respond_to do |format|
       if @label.save
+        sign_in @label.user 
         format.html { redirect_to @label, notice: 'Label was successfully created.' }
         format.json { render :show, status: :created, location: @label }
       else
