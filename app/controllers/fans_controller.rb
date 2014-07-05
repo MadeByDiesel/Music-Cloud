@@ -1,5 +1,5 @@
 class FansController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index, :new, :create, :show]
   before_action :set_fan, only: [:show, :edit, :update, :destroy]
 
   # GET /fans

@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index]
+  before_action :authenticate_user!, :except => [:index, :new, :create, :show]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   # GET /artists
@@ -28,10 +28,9 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = Artist.new(artist_params)
-
     respond_to do |format|
       if @artist.save
-        sign_in @artist.user 
+        sign_in @artist.user
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
         format.json { render :show, status: :created, location: @artist }
       else
@@ -60,7 +59,8 @@ class ArtistsController < ApplicationController
   def destroy
     @artist.destroy
     respond_to do |format|
-      format.html { redirect_to artists_url, notice: 'Artist was successfully destroyed.' }
+      sign_out :user
+      format.html { redirect_to root_url, notice: 'Artist was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

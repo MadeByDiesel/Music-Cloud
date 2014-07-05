@@ -18,5 +18,60 @@
 @import "bootstrap";
 
 body {
-  margin-top: 58px;
+ margin-bottom: 50px;
 }
+.navbar {
+   background-color: transparent;
+   background: transparent;
+}
+
+.navbar li { color: #000 } 
+.navbar-brand {
+  color: #666666;
+}
+
+.navbar-nav > li > a {
+  color: #666666;
+}
+
+.navbar-nav > li > a:hover, 
+.navbar-nav > li > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+  background: transparent;
+}
+
+.alert {
+  padding: 15px;
+/* margin-bottom: 20px; */
+  border: 1px solid transparent;
+/* border-radius: 4px; */
+  margin-top: 50px;
+}
+
+.jumbotron {
+  height: 450px;
+}
+
+.marketing {
+  margin-top: 60px;
+}
+
+.devise-form {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.signup {
+  margin-top: 150px;
+  margin-bottom: 250px;
+}
+
+.signup-box {
+  background-color: #ffffff;
+  border-radius: 6px;
+  height: 150px;
+  width: 45%;
+  margin-left: 25px;
+}
+
