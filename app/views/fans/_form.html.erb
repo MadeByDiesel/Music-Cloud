@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-    <%= f.fields_for :user do |u| %>
-    <%= u.text_field :username, autofocus: true %>  
+  <%= f.fields_for :user do |u| %>
+    <%= u.text_field :user_name, autofocus: true %>  
     <%= u.email_field :email %>
     <%= u.password_field :password, autocomplete: "off" %>
     <%= u.password_field :password_confirmation, autocomplete: "off" %>
-    <% end %>
+  <% end %>
 
     <%= f.submit %>
 

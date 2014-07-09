@@ -35,4 +35,14 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => "Music-Cloud-Dev",
+          :access_key_id => "AKIAJ665XSLEJE3KCMKQ",
+          :secret_access_key => "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"
+      }
+  }
 end

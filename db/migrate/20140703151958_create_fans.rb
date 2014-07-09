@@ -3,9 +3,10 @@ class CreateFans < ActiveRecord::Migration
     create_table :fans do |t|
       t.string :first_name
       t.string :last_name
-      t.string :username
+      t.string :fan_name
       t.string :city
       t.string :country
+      t.string :bio
 
       t.timestamps
     end
