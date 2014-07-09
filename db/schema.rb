@@ -11,35 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703151958) do
+ActiveRecord::Schema.define(version: 20140709024732) do
 
   create_table "artists", force: true do |t|
-    t.string   "artistname"
+    t.string   "artist_name"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "country"
     t.string   "genre"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "fans", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "username"
+    t.string   "fan_name"
     t.string   "city"
     t.string   "country"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "labels", force: true do |t|
-    t.string   "labelname"
+    t.string   "label_name"
     t.string   "city"
     t.string   "country"
     t.string   "contactname"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -55,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140703151958) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
+    t.string   "user_name"
     t.integer  "account_id"
     t.string   "account_type"
   end

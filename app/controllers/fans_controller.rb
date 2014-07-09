@@ -2,67 +2,50 @@ class FansController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :new, :create, :show]
   before_action :set_fan, only: [:show, :edit, :update, :destroy]
 
-  # GET /fans
-  # GET /fans.json
   def index
     @fans = Fan.all
   end
 
-  # GET /fans/1
-  # GET /fans/1.json
   def show
-    @fan = Artist.find(params[:id])
+    @fan = Fan.find(params[:id])
   end
 
-  # GET /fans/new
   def new
     @fan = Fan.new
     @fan.build_user
   end
 
-  # GET /fans/1/edit
   def edit
+    @user = current_user
+    @fan = Fan.find(params[:id])
   end
 
-  # POST /fans
-  # POST /fans.json
   def create
     @fan = Fan.new(fan_params)
-
-    respond_to do |format|
       if @fan.save
         sign_in @fan.user 
-        format.html { redirect_to @fan, notice: 'Fan was successfully created.' }
-        format.json { render :show, status: :created, location: @fan }
+        flash[:success] = "Your fan profile has been successfully created...Please complete the rest of your profile"
+        redirect_to @fan
       else
-        format.html { render :new }
-        format.json { render json: @fan.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
-  # PATCH/PUT /fans/1
-  # PATCH/PUT /fans/1.json
   def update
-    respond_to do |format|
-      if @fan.update(fan_params)
-        format.html { redirect_to @fan, notice: 'Fan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @fan }
+    @fan = Fan.find(params[:id])
+      if @fan.update_attributes(fan_params)
+        flash[:success] = "Profile updated"
+        redirect_to @fan
       else
-        format.html { render :edit }
-        format.json { render json: @fan.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
-  # DELETE /fans/1
-  # DELETE /fans/1.json
   def destroy
     @fan.destroy
-    respond_to do |format|
-      format.html { redirect_to fans_url, notice: 'Fan was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    sign_out :user 
+    flash[:alert] = "Your account was successfully deleted, goodbye."
+    redirect_to root_url
   end
 
   private
@@ -73,6 +56,6 @@ class FansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fan_params
-      params.require(:fan).permit(:first_name, :last_name, :username, :city, :country)
+      params.require(:fan).permit(:first_name, :last_name, :fan_name, :city, :country, :bio, :avatar, user_attributes: [ :id, :email, :user_name, :password ])
     end
 end

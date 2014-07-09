@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :username << :account_type
+    devise_parameter_sanitizer.for(:sign_up) << :username 
   end
 
   def after_sign_in_path_for(resource)
@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
       artist_path(resource)
     elsif current_user.account_type ==  "Label"
       label_path(resource)
+    else current_user.account_type == "Fan"
+      fan_path(resource)
     end
   end
 
