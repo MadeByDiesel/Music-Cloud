@@ -4,6 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :account, polymorphic: true
-
-  
+  validates_uniqueness_of :user_name 
 end

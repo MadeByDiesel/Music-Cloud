@@ -3,4 +3,5 @@
     
   </div>
 </div>
-<h1><%= @artist.artistname %></h1>
+<%= image_tag @artist.avatar.url(:thumb) %>
+<h1><%= @artist.artist_name %></h1>

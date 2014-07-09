@@ -1,6 +1,12 @@
-<h1>Editing artist</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @artist %> |
-<%= link_to 'Back', artists_path %>
+<% provide(:title, "Edit Artist") %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1>Update your profile</h1>
+    <%= bootstrap_form_for @artist, :html => { :multipart => true } do |f| %>
+      <%= image_tag @artist.avatar.url(:thumb) %>
+      <%= f.file_field :avatar %>
+      <%= f.text_field :artist_name %>
+      <%= f.submit "Save changes" %>
+    <% end %>
+  </div>
+</div>
