@@ -1,8 +1,6 @@
-class Artist < ActiveRecord::Base
-  has_one :user, as: :account, dependent: :destroy
-  has_many :tracks, dependent: :destroy
-  accepts_nested_attributes_for :user
-  validates_uniqueness_of :artist_name 
+class Track < ActiveRecord::Base
+  belongs_to :artist
+  has_attached_file :audio
   has_attached_file :avatar, 
                     :styles => { :medium => "300x300>", :thumb => "150x150>" }, 
                     :default_url => "https://s3-us-west-2.amazonaws.com/trackfilter/default/default_250.png"

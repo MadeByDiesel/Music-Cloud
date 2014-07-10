@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+
   root 'static_pages#index'
 
   devise_for :users
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
   end
   resources :fans
   resources :labels
-  resources :artists
+  resources :artists do
+    resources :tracks
+  end
+
+
 
   get 'sign_up', to: 'static_pages#sign_up'
   get '/artist/sign_up', to: 'artists#new'

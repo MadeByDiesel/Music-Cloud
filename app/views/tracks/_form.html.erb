@@ -1,0 +1,29 @@
+<%= bootstrap_form_for @track, :html => { :multipart => true } do |f| %>
+  <% if @track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+      <% @track.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :track_title %><br>
+    <%= f.text_field :track_title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :track_type %><br>
+    <%= f.text_field :track_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

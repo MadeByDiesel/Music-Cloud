@@ -9,6 +9,7 @@ class ArtistsController < ApplicationController
   def show
     @user = current_user
     @artist = Artist.find(params[:id])
+    @tracks = @artist.tracks.all 
   end
 
   def new

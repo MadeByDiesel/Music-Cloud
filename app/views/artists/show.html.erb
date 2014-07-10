@@ -1,7 +1,30 @@
 <div class="jumbotron">
-  <div class="container marketing">
-    
+  <div class="container">
+    <div class="row artist-info">
+      <div class='col-md-2'>
+        <%= image_tag @artist.avatar.url(:thumb) %>
+      </div>      
+      <div class='col-md-10 artist-name'>
+        <h1><%= @artist.artist_name %></h1>
+      </div>
+    </div> 
   </div>
+</div> 
+<div class='container artist-content'>
+  <div class='row'>        
+    <div id='aside' class='col-md-2'>
+      A Side
+    </div>
+    <div id="main" class="col-md-6">
+        <% @tracks.each do |t| %>
+          <div class="audio-container">
+            <audio controls preload="auto" src="<%= t.mp3.url %>" type="audio/mp3"></audio>
+              <h4><%= link_to(t.track_title, t) %></h4>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+    <div id="right-col" class="col-md-3 well">
+    </div>
+  </div> 
 </div>
-<%= image_tag @artist.avatar.url(:thumb) %>
-<h1><%= @artist.artist_name %></h1>
