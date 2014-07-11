@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  alias_method :devise_current_user, :current_user
 
   private
 
@@ -11,13 +12,21 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.account_type == "Artist" 
-      artist_path(resource)
-    elsif current_user.account_type ==  "Label"
-      label_path(resource)
-    else current_user.account_type == "Fan"
-      fan_path(resource)
+    if resource.account_type == "Artist" 
+      artist_path(resource.account)
+    elsif resource.account_type ==  "Label"
+      label_path(resource.account)
+    else resource.account_type == "Fan"
+      fan_path(resource.account)
     end
+  end
+
+  def current_user
+    if params[:user_id].blank?
+      devise_current_user
+    else
+      User.find(params[:user_id])
+    end   
   end
 
 end

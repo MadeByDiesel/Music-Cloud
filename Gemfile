@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'devise'
+gem 'devise', '~> 3.2.4'
 gem 'bootstrap_form'
 gem 'aws-sdk', '~> 1.5.7'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
