@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :account, polymorphic: true
   validates_uniqueness_of :user_name 
+
 end

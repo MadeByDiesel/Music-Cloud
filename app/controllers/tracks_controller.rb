@@ -11,12 +11,13 @@ class TracksController < ApplicationController
   # GET /tracks/1
   # GET /tracks/1.json
   def show
+ 
   end
 
   # GET /tracks/new
   def new
-    @track = Track.new
-    @track.build_artist
+    @artist = Artist.find(params[:artist_id])
+    @track = @artist.tracks.new
   end
 
   # GET /tracks/1/edit
@@ -26,12 +27,14 @@ class TracksController < ApplicationController
   # POST /tracks
   # POST /tracks.json
   def create
-    @track = Track.new(track_params)
+    #@track = Track.new(track_params)
+    @artist = Artist.find(params[:artist_id])
+    @track = @artist.tracks.create(track_params)
       if @track.save
         flash[:notice] = "Track was successfully created."
-        redirect_to @artist 
+        redirect_to @artist # this works: artist_path(current_user) @artist doesn't = nil
       else
-        redirect_to new_artist_track_path
+        render :new
       end
   end
 
@@ -53,10 +56,8 @@ class TracksController < ApplicationController
   # DELETE /tracks/1.json
   def destroy
     @track.destroy
-    respond_to do |format|
-      format.html { redirect_to tracks_url, notice: 'Track was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      flash[:alert] = "Track was successfully deleted."
+      redirect_to artist_path(current_user)
   end
 
   private
@@ -67,6 +68,6 @@ class TracksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def track_params
-      params.require(:track).permit(:track_title, :description, :track_type)
+      params.require(:track).permit(:track_title, :description, :track_type, :avatar, :audio)
     end
 end
