@@ -11,7 +11,7 @@ class TracksController < ApplicationController
   # GET /tracks/1
   # GET /tracks/1.json
   def show
- 
+    @track = Track.find(params[:id])
   end
 
   # GET /tracks/new

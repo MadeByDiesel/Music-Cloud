@@ -20,9 +20,9 @@
       <%= link_to 'Upload New Track', new_artist_track_path(@artist), class: "btn btn-sm btn-danger" %>
       <% end %>
       <ul>
-        <% @artist.tracks.each do |t| %>
+        <% @artist.tracks.each do |track| %>
           <div class="audio-container">
-              <h4><%= link_to t.track_title %></h4>
+              <h4><%= link_to track.track_title, track %></h4>
           </div>
         <% end %>
       </ul>
