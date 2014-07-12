@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="container" id='main'>
+  <div class="row">
+    <div class='col-md-6'>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Track title:</strong>
-  <%= @track.track_title %>
-</p>
+      <p>
+        <strong>Track title:</strong>
+        <%= @track.track_title %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @track.description %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @track.description %>
+      </p>
 
-<p>
-  <strong>Track type:</strong>
-  <%= @track.track_type %>
-</p>
+      <p>
+        <strong>Track type:</strong>
+        <%= @track.track_type %>
+      </p>
 
-<%= link_to 'Edit', edit_track_path(@track) %> |
-<%= link_to 'Back', tracks_path %>
+
+      <%= link_to 'Back', :back %>
+
+     </div>
+  </div>
+</div>
