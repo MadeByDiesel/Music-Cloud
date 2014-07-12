@@ -4,7 +4,7 @@ class CreateLabels < ActiveRecord::Migration
       t.string :label_name
       t.string :city
       t.string :country
-      t.string :contactname
+      t.string :contact_name
       t.string :bio
 
       t.timestamps

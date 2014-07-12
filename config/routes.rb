@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   end
   resources :fans
   resources :labels
-  resources :artists
+  resources :artists do
+    resources :tracks, only: [ :show, :new, :create]
+  end
+  resources :tracks, only: [:index, :show]
 
   get 'sign_up', to: 'static_pages#sign_up'
   get '/artist/sign_up', to: 'artists#new'
   get '/label/sign_up', to: 'labels#new'
   get '/fan/sign_up', to: 'fans#new'
+  get 'tracks', to: 'tracks#index'
 
 end

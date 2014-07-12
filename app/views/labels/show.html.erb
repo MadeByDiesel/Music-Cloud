@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container" id='main'>
+  <div class="row">
+    <div class='col-md-6'>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Labelname:</strong>
-  <%= @label.label_name %>
-</p>
+      <p>
+        <%= image_tag @label.avatar.url(:thumb) %>
+        <strong>Labelname:</strong>
+        <%= @label.label_name %>
+      </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @label.city %>
-</p>
+      <p>
+        <strong>City:</strong>
+        <%= @label.city %>
+      </p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @label.country %>
-</p>
+      <p>
+        <strong>Country:</strong>
+        <%= @label.country %>
+      </p>
 
-<p>
-  <strong>Contactname:</strong>
-  <%= @label.contact_name %>
-</p>
+      <p>
+        <strong>Contactname:</strong>
+        <%= @label.contact_name %>
+      </p>
 
-<%= link_to 'Edit', edit_label_path(@label) %> |
-<%= link_to 'Back', labels_path %>
+      <%= link_to 'Edit', edit_label_path(@label) %> |
+      <%= link_to 'Back', labels_path %>
+    </div>
+  </div>
+</div>
