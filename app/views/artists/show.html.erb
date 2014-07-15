@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row artist-info">
       <div class='col-md-2'>
-        <%= image_tag @artist.avatar.url(:thumb) %>
+        <%= image_tag @artist.avatar.url(:medium) %>
       </div>      
       <div class='col-md-10 artist-name'>
         <h1><%= @artist.artist_name %></h1>
@@ -22,7 +22,7 @@
       <ul>
         <% @artist.tracks.each do |track| %>
           <div class="audio-container">
-              <h4><%= link_to track.track_title, track %></h4>
+              <h4><%= link_to track.track_title, [@artist, track] %></h4>
           </div>
         <% end %>
       </ul>

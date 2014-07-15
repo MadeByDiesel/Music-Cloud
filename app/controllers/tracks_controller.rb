@@ -2,30 +2,23 @@ class TracksController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
-  # GET /tracks
-  # GET /tracks.json
   def index
+    @artists = Artist.all
     @tracks = Track.all
   end
 
-  # GET /tracks/1
-  # GET /tracks/1.json
   def show
     @track = Track.find(params[:id])
   end
 
-  # GET /tracks/new
   def new
     @artist = Artist.find(params[:artist_id])
     @track = @artist.tracks.new
   end
 
-  # GET /tracks/1/edit
   def edit
   end
 
-  # POST /tracks
-  # POST /tracks.json
   def create
     #@track = Track.new(track_params)
     @artist = Artist.find(params[:artist_id])
@@ -38,8 +31,6 @@ class TracksController < ApplicationController
       end
   end
 
-  # PATCH/PUT /tracks/1
-  # PATCH/PUT /tracks/1.json
   def update
     respond_to do |format|
       if @track.update(track_params)
@@ -52,8 +43,6 @@ class TracksController < ApplicationController
     end
   end
 
-  # DELETE /tracks/1
-  # DELETE /tracks/1.json
   def destroy
     @track.destroy
       flash[:alert] = "Track was successfully deleted."

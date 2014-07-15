@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   resources :fans
   resources :labels
   resources :artists do
-    resources :tracks, only: [ :show, :new, :create]
+    resources :tracks , only: [ :show, :new, :create] 
   end
-  resources :tracks, only: [:index, :show]
+  #resources :tracks, only: [:index, :show]
 
   get 'sign_up', to: 'static_pages#sign_up'
   get '/artist/sign_up', to: 'artists#new'
