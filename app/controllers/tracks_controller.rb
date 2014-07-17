@@ -1,10 +1,14 @@
 class TracksController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:show]
   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @artists = Artist.all
-    @tracks = Track.all
+  def index 
+    @artist = Artist.find(params[:artist_id])
+    if owner
+      @tracks = @artist.tracks.all
+    else
+      redirect_to root_url
+    end
   end
 
   def show
@@ -14,6 +18,7 @@ class TracksController < ApplicationController
   def new
     @artist = Artist.find(params[:artist_id])
     @track = @artist.tracks.new
+    redirect_to root_url unless current_user[:account_id] == @artist.id
   end
 
   def edit
@@ -49,6 +54,7 @@ class TracksController < ApplicationController
       redirect_to artist_path(current_user)
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_track
@@ -58,5 +64,9 @@ class TracksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def track_params
       params.require(:track).permit(:track_title, :description, :track_type, :avatar, :audio)
+    end
+
+    def owner
+      current_user[:account_id] == @artist.id       
     end
 end

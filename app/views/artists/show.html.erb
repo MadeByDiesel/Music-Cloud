@@ -5,7 +5,8 @@
         <%= image_tag @artist.avatar.url(:medium) %>
       </div>      
       <div class='col-md-10 artist-name'>
-        <h1><%= @artist.artist_name %></h1>
+        <h1 id="artist-title"><%= @artist.artist_name %></h1>
+        <p><%= @artist.country %></p>
       </div>
     </div> 
   </div>
@@ -15,9 +16,9 @@
     <div id='aside' class='col-md-3'>
       A Side
     </div>
-    <div id="main" class="col-md-6">
-      <% if user_signed_in? %>
-      <%= link_to 'Upload New Track', new_artist_track_path(@artist), class: "btn btn-sm btn-danger" %>
+    <div id="center" class="col-md-6">
+      <% if current_user[:account_id] == @artist.id %>
+        <%= link_to 'Upload New Track', new_artist_track_path(@artist), class: "btn btn-sm btn-danger upload-button" %>
       <% end %>
       <ul>
         <% @artist.tracks.each do |track| %>
@@ -26,10 +27,9 @@
           </div>
         <% end %>
       </ul>
-
-      </ul>
     </div>
-    <div id="right-col" class="col-md-3 well">
+    <div id="right-col" class="col-md-3">
+      B Side
     </div>
   </div> 
 </div>

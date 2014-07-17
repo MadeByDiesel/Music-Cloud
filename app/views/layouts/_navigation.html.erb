@@ -10,6 +10,10 @@
       <%= link_to 'Music Cloud', root_path, class: "navbar-brand"  %>
     </div>
     <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <%= render 'layouts/navigation_links_left' %>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <%= render 'layouts/navigation_links' %>
       </ul>

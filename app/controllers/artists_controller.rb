@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:index, :new, :create, :show]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,6 +19,7 @@ class ArtistsController < ApplicationController
   def edit
     @user = current_user
     @artist = Artist.find(params[:id])  
+    redirect_to root_url unless current_user[:account_id] == @artist.id
   end
 
   def create

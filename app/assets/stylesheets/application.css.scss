@@ -20,9 +20,15 @@
 body {
  margin-bottom: 50px;
 }
+
+.h1 {
+  font-size: 1.5em;
+}
+
 .navbar {
    background-color: transparent;
    background: transparent;
+   margin-bottom: 0;
 }
 
 .navbar li { color: #000 } 
@@ -39,6 +45,15 @@ body {
   color: #cccccc;
   background-color: transparent;
   background: transparent;
+}
+
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
 }
 
 .alert {
@@ -76,7 +91,7 @@ body {
 }
 
 .artist-info {
-  margin-top: 350px;
+  margin-top: 300px;
 }
 
 .artist-name {
@@ -86,3 +101,22 @@ body {
 .artist-content {
   margin: 150px 0 150px 0;
 }
+
+#center {
+  margin: auto;
+}
+
+h1#artist-title {
+  font-size: 36px;
+  margin: 70px 0 0 20px;
+}
+
+#main {
+  margin-top: 80px;
+}
+
+.upload-button {
+  margin-left: 40px;
+}
+
+
