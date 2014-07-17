@@ -18,7 +18,8 @@ class ArtistsController < ApplicationController
 
   def edit
     @user = current_user
-    @artist = Artist.find(params[:id])
+    @artist = Artist.find(params[:id])  
+    redirect_to root_url unless current_user[:account_id] == @artist.id
   end
 
   def create

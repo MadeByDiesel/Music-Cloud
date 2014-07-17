@@ -18,7 +18,7 @@
             <td><%= track.track_title %></td>
             <td><%= track.description %></td>
             <td><%= track.track_type %></td>
-            <td><%= link_to 'Show', track %></td>
+            <td><%= link_to 'Show', artist_track_path(track.artist_id, track.id) %></td>
           </tr>
         <% end %>
       </tbody>
