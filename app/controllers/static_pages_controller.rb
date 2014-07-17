@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
 
-  def index
+  def home
+  end
+
+  def latest
+    @tracks = Track.all
   end
 end

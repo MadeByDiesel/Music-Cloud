@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   alias_method :devise_current_user, :current_user
+  #helper_method :owned
 
   private
 
@@ -27,6 +28,11 @@ class ApplicationController < ActionController::Base
     else
       User.find(params[:user_id])
     end   
+  end
+
+  def owned
+    #redirect_to root_url unless current_user[:account_id] == @artist.id
+    #current_user[:account_id] == @artist.id
   end
 
 end
