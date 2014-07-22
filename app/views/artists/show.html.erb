@@ -17,16 +17,14 @@
       A Side
     </div>
     <div id="center" class="col-md-6">
-      <% if user_signed_in? %>
-        <% if current_user[:account_id] == @artist.id %>
-          <%= link_to 'Upload New Track', new_artist_track_path(@artist), class: "btn btn-sm btn-danger upload-button" %>
-        <% end %>
-      <% end %> 
-      <ul>
+      <ul class="media-list">
         <% @artist.tracks.each do |track| %>
-          <div class="audio-container">
+        <li class="media">
+          <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id), class: "pull-left" %>
+          <div class="audio-container media-body">
               <h4><%= link_to track.track_title, [@artist, track] %></h4>
           </div>
+        </li>
         <% end %>
       </ul>
     </div>
