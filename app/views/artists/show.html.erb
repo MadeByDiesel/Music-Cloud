@@ -1,10 +1,10 @@
 <div class="jumbotron artist-cover" style="background-image:url(<%= @artist.cover.url %>)">
   <div class="container">
     <div class="row artist-info">
-      <div class='col-md-2'>
+      <div class='col-lg-2'>
         <%= image_tag @artist.avatar.url(:medium) %>
       </div>      
-      <div class='col-md-10 artist-name'>
+      <div class='col-lg-10 artist-name'>
         <h1 id="artist-title"><%= @artist.artist_name %></h1>
         <p><%= @artist.country %></p>
       </div>
@@ -13,10 +13,10 @@
 </div> 
 <div class='container artist-content'>
   <div class='row'>        
-    <div id='aside' class='col-md-3'>
+    <div id='aside' class='col-lg-3'>
       A Side
     </div>
-    <div id="center" class="col-md-6">
+    <div id="center" class="col-lg-6">
       <ul class="media-list">
         <% @artist.tracks.each do |track| %>
         <li class="media">
@@ -28,7 +28,7 @@
         <% end %>
       </ul>
     </div>
-    <div id="right-col" class="col-md-3">
+    <div id="right-col" class="col-lg-3">
       B Side
     </div>
   </div> 
