@@ -1,37 +1,47 @@
-<div class="jumbotron">
+<div class="jumbotron artist-cover" style="background-image:url(<%= @artist.cover.url %>)">
   <div class="container">
     <div class="row artist-info">
-      <div class='col-md-2'>
+      <div class='col-lg-2'>
         <%= image_tag @artist.avatar.url(:medium) %>
-      </div>      
-      <div class='col-md-10 artist-name'>
-        <h1 id="artist-title"><%= @artist.artist_name %></h1>
-        <p><%= @artist.country %></p>
+      </div>    
+      <div class='col-lg-6 artist-name'>
+        <h1 class="pull-left" id="artist-title"><%= @artist.artist_name %></h1>
+
       </div>
-    </div> 
+      <div class='col-lg-4'>
+      
+      </div>
+      
+    </div>     
   </div>
 </div> 
 <div class='container artist-content'>
   <div class='row'>        
-    <div id='aside' class='col-md-3'>
+    <div id='aside' class='col-lg-3'>
       A Side
     </div>
-    <div id="center" class="col-md-6">
-      <% if user_signed_in? %>
-        <% if current_user[:account_id] == @artist.id %>
-          <%= link_to 'Upload New Track', new_artist_track_path(@artist), class: "btn btn-sm btn-danger upload-button" %>
-        <% end %>
-      <% end %> 
-      <ul>
+    <div id="center" class="col-lg-6">
+      <ul class="media-list">
         <% @artist.tracks.each do |track| %>
-          <div class="audio-container">
-              <h4><%= link_to track.track_title, [@artist, track] %></h4>
-          </div>
+        <li class="media">
+          <div class="pull-left">
+            <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id) %>
+          </div>   
+          <ul class="playlist">
+            <li class="media-body">
+              <a href="<%= track.audio.url %>"><%= track.track_title %></a>
+            </li>
+            <div class="track-description">
+              <%= track.description %>
+            </div>
+          </ul>         
+        </li>
         <% end %>
       </ul>
     </div>
-    <div id="right-col" class="col-md-3">
+    <div id="right-col" class="col-lg-3">
       B Side
     </div>
   </div> 
 </div>
+

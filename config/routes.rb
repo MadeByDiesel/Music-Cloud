@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :fans
   resources :labels
   resources :artists do
-    resources :tracks , only: [ :index, :show, :new, :create, :edit, :update] 
+    resources :tracks #, only: [ :index, :show, :new, :create, :edit, :update] 
   end
 
   get 'latest', to: 'static_pages#latest'

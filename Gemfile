@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.0.0'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
@@ -16,6 +16,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'soundmanager-rails'
 
 group :development do
   gem 'spring'

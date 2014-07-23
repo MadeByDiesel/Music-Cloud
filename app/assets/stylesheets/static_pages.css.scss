@@ -1,3 +1,23 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#home {
+  background: url(http://i1.sndcdn.com/artworks-000060022158-qaagjp-original.jpg?3eddc42) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 30px;
+  height: 700px;
+  color: white;
+}
+

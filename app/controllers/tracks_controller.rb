@@ -12,6 +12,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    @artist = Artist.find(params[:artist_id])
     @track = Track.find(params[:id])
   end
 
@@ -22,6 +23,9 @@ class TracksController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find(params[:artist_id])
+    @track = @artist.tracks.find_by_id(params[:id])
+    redirect_to root_url unless current_user[:account_id] == @artist.id
   end
 
   def create
@@ -37,15 +41,12 @@ class TracksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
       if @track.update(track_params)
-        format.html { redirect_to @track, notice: 'Track was successfully updated.' }
-        format.json { render :show, status: :ok, location: @track }
+        flash[:success] = "Track was successfully updated...."
+        redirect_to :back
       else
-        format.html { render :edit }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
+        render :edit 
       end
-    end
   end
 
   def destroy
