@@ -22,15 +22,8 @@ body {
  min-width: 970px;
 }
 
-
 .h1 {
   font-size: 1.5em;
-}
-
-.navbar {
-   background-color: transparent;
-   background: transparent;
-   margin-bottom: 0;
 }
 
 .navbar li { color: #000 } 
@@ -60,10 +53,10 @@ body {
 
 .alert {
   padding: 15px;
-/* margin-bottom: 20px; */
   border: 1px solid transparent;
-/* border-radius: 4px; */
   margin-top: 50px;
+  margin-bottom: 0px;
+  border-radius: 0px;
 }
 
 .jumbotron {
@@ -71,7 +64,7 @@ body {
 }
 
 .marketing {
-  margin-top: 60px;
+  margin-top: 150px;
 }
 
 .devise-form {
@@ -127,3 +120,8 @@ h1#artist-title {
   background-attachment: fixed;
   background-size: cover;
 }
+
+.track-description {
+  margin: 12px 0 0 150px;
+}
+

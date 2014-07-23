@@ -3,12 +3,16 @@
     <div class="row artist-info">
       <div class='col-lg-2'>
         <%= image_tag @artist.avatar.url(:medium) %>
-      </div>      
-      <div class='col-lg-10 artist-name'>
-        <h1 id="artist-title"><%= @artist.artist_name %></h1>
-        <p><%= @artist.country %></p>
+      </div>    
+      <div class='col-lg-6 artist-name'>
+        <h1 class="pull-left" id="artist-title"><%= @artist.artist_name %></h1>
+
       </div>
-    </div> 
+      <div class='col-lg-4'>
+      
+      </div>
+      
+    </div>     
   </div>
 </div> 
 <div class='container artist-content'>
@@ -20,10 +24,17 @@
       <ul class="media-list">
         <% @artist.tracks.each do |track| %>
         <li class="media">
-          <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id), class: "pull-left" %>
-          <div class="audio-container media-body">
-              <h4><%= link_to track.track_title, [@artist, track] %></h4>
-          </div>
+          <div class="pull-left">
+            <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id) %>
+          </div>   
+          <ul class="playlist">
+            <li class="media-body">
+              <a href="<%= track.audio.url %>"><%= track.track_title %></a>
+            </li>
+            <div class="track-description">
+              <%= track.description %>
+            </div>
+          </ul>         
         </li>
         <% end %>
       </ul>
@@ -33,3 +44,4 @@
     </div>
   </div> 
 </div>
+

@@ -16,6 +16,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate', '~> 3.0.7'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'soundmanager-rails'
 
 group :development do
   gem 'spring'
