@@ -20,9 +20,13 @@
       <ul class="media-list">
         <% @artist.tracks.each do |track| %>
         <li class="media">
-          <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id), class: "pull-left" %>
-          <div class="audio-container media-body">
-              <h4><%= link_to track.track_title, [@artist, track] %></h4>
+          <div class="pull-left">
+            <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id) %>
+          </div>     
+          <div class="media-body">
+            <div><%= audio_tag track.audio.url, controls: true %></div>
+            <p><a class="sm2_button" data-action="play" href="<%= track.audio.url %>"></a><%= track.track_title %></p>
+            <div id="wave" data-url="<%= track.audio.url %>"></div>
           </div>
         </li>
         <% end %>
@@ -33,3 +37,4 @@
     </div>
   </div> 
 </div>
+

@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require wavesurfer.min
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require soundmanager
 //= require_tree .
+
