@@ -3,12 +3,16 @@
     <div class="row artist-info">
       <div class='col-lg-2'>
         <%= image_tag @artist.avatar.url(:medium) %>
-      </div>      
-      <div class='col-lg-10 artist-name'>
-        <h1 id="artist-title"><%= @artist.artist_name %></h1>
-        <p><%= @artist.country %></p>
+      </div>    
+      <div class='col-lg-6 artist-name'>
+        <h1 class="pull-left" id="artist-title"><%= @artist.artist_name %></h1>
+
       </div>
-    </div> 
+      <div class='col-lg-4'>
+      
+      </div>
+      
+    </div>     
   </div>
 </div> 
 <div class='container artist-content'>
@@ -22,12 +26,15 @@
         <li class="media">
           <div class="pull-left">
             <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id) %>
-          </div>     
-          <div class="media-body">
-            <div><%= audio_tag track.audio.url, controls: true %></div>
-            <p><a class="sm2_button" data-action="play" href="<%= track.audio.url %>"></a><%= track.track_title %></p>
-            <div id="wave" data-url="<%= track.audio.url %>"></div>
-          </div>
+          </div>   
+          <ul class="playlist">
+            <li class="media-body">
+              <a href="<%= track.audio.url %>"><%= track.track_title %></a>
+            </li>
+            <div class="track-description">
+              <%= track.description %>
+            </div>
+          </ul>         
         </li>
         <% end %>
       </ul>

@@ -12,9 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require wavesurfer.min
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require soundmanager
+//= require page-player
 //= require_tree .
 
+soundManager.setup({
+  flashVersion: 9,
+  preferFlash: false, // for visualization effects
+  useHighPerformance: true, // keep flash on screen, boost performance
+  wmode: 'transparent', // transparent SWF, if possible
+
+});
