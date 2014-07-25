@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722060306) do
+ActiveRecord::Schema.define(version: 20140725064033) do
 
   create_table "artists", force: true do |t|
     t.string   "artist_name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140722060306) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "city"
   end
 
   create_table "fans", force: true do |t|

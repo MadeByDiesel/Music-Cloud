@@ -1,31 +1,46 @@
-<div class="jumbotron artist-cover" style="background-image:url(<%= @artist.cover.url %>)">
-  <div class="container">
-    <div class="row artist-info">
-      <div class='col-lg-2'>
-        <%= image_tag @artist.avatar.url(:medium) %>
-      </div>    
-      <div class='col-lg-6 artist-name'>
-        <h1 class="pull-left" id="artist-title"><%= @artist.artist_name %></h1>
+<header style="background-image:url(<%= @artist.cover.url %>)">
+  
+</header>
 
-      </div>
-      <div class='col-lg-4'>
-      
-      </div>
-      
-    </div>     
-  </div>
-</div> 
-<div class='container artist-content'>
-  <div class='row'>        
-    <div id='aside' class='col-lg-3'>
-      A Side
+<!-- Main Artist Container -->
+
+<div class='container'>
+  <div class="row info">
+    <div class='col-sm-3'>
+      <%= image_tag @artist.avatar.url(:medium), class: "thumbnail center-block img-responsive" %>
     </div>
-    <div id="center" class="col-lg-6">
+    <div class="col-sm-9">
+      <div class="row artist-blank">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6"></div>
+      </div>
+      <div class="row artist-info">
+        <div class='col-sm-9'>
+          <ul>
+            <li><h1><%= @artist.artist_name %></h1></li>
+            <li class="location"><h5><em><%= @artist.city %>,&nbsp<%= @artist.country %></em></h5></li>
+          </ul>
+        </div>
+        <div class='col-sm-3'>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 genre"><em>Genre:</em></div>
+        <div class="col-sm-6"></div>
+      </div>  
+    </div>   
+  </div> 
+                   
+  <div id="content" class='row'>        
+    <div id='aside' class='col-md-3'>
+      <h4>Patron</h4>
+    </div>
+    <div id="center" class="col-md-6">
       <ul class="media-list">
         <% @artist.tracks.each do |track| %>
         <li class="media">
           <div class="pull-left">
-            <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id) %>
+            <%= link_to image_tag(track.avatar.url(:thumb)), artist_track_path(track.artist_id, track.id), class: "thumbnail img-responsive" %>
           </div>   
           <ul class="playlist">
             <li class="media-body">
@@ -39,7 +54,7 @@
         <% end %>
       </ul>
     </div>
-    <div id="right-col" class="col-lg-3">
+    <div id="bside" class="col-md-3">
       B Side
     </div>
   </div> 

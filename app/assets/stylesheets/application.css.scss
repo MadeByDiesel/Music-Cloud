@@ -18,8 +18,7 @@
 @import "bootstrap";
 
 body {
- margin-bottom: 50px;
- min-width: 970px;
+padding-top: 50px;
 }
 
 .h1 {
@@ -54,7 +53,6 @@ body {
 .alert {
   padding: 15px;
   border: 1px solid transparent;
-  margin-top: 50px;
   margin-bottom: 0px;
   border-radius: 0px;
 }
@@ -64,7 +62,15 @@ body {
 }
 
 .marketing {
-  margin-top: 150px;
+  margin-top: 250px;
+}
+
+header {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 .devise-form {
@@ -85,43 +91,38 @@ body {
   margin-left: 25px;
 }
 
-.artist-info {
-  margin-top: 300px;
-}
-
-.artist-name {
-  margin-top: 40px;
-}
-
-.artist-content {
-  margin: 150px 0 150px 0;
-}
-
-#center {
-  margin: auto;
-}
-
-h1#artist-title {
-  font-size: 36px;
-  margin: 70px 0 0 20px;
-}
-
 #main {
   margin-top: 80px;
 }
-
-.upload-button {
-  margin-left: 40px;
+.thumbnail {
+  border-radius: 0px;
 }
 
-.artist-cover {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
+@media (max-width: 650px) { 
+  header {
+    height: 250px;
+  }
 
-.track-description {
-  margin: 12px 0 0 150px;
+  .artist-blank {
+    height: 0px;
+  }
+
+  .artist-info {
+    margin-top: -20px;
+    margin-left: 80px;
+  }
+
+  .artist-info li {
+    padding: 0px;
+    list-style-type: none;
+  }
+
+  #content {
+    margin-top: 20px;
+  }
+
+  .genre {
+    margin-left: 200px;
+  }
 }
 
